@@ -1,1 +1,3 @@
-# NLP-application
+# FAMI (wip name)
+
+Awesome! Cool! NLP project! Yay!
