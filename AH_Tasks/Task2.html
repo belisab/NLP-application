@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epic Web Site!</title>
+    <style>
+        html, body {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+        body.part1, body.part2 {
+            background: url("https://www.shutterstock.com/image-illustration/spooky-scary-graveyard-burning-fire-260nw-149742032.jpg");
+            background-size: cover;
+        }
+        p {
+            font-family: "Comic Sans MS";
+            font-size: 2rem;
+        }
+        body.part1 div.hide, body.part2 div.hide {
+            display: none;
+        }
+        body:not(.part1) div.part1 {
+            display: none;
+        }
+        body:not(.part2) div.part2 {
+            display: none;
+        }
+        body.part1 div, body.part2 div {
+            background-color: white;
+            padding: 67px;
+        }
+        body.part1 div {
+            animation: forwards ease-out spininn 5s;
+        }
+        .rainbow {
+            font-weight: bold;
+            animation: forwards infinite linear rainbowww 1s;
+        }
+        #explosion {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(500%);
+            animation: forwards hide-after 1s;
+        }
+        @keyframes rainbowww {
+            0% {
+                color: red;
+            }
+            25% {
+                color: darkgoldenrod;
+            }
+            50% {
+                color: green;
+            }
+            75% {
+                color: blue;
+            }
+            100% {
+                color: red;
+            }
+        }
+        @keyframes spininn {
+            0% { rotate: 180deg; }
+            1% { rotate: 0deg; }
+            2% { rotate: 180deg; transform: skewX(0deg); }
+            3% { rotate: 0deg;  transform: skewX(-50deg); }
+            4% { rotate: 180deg; transform: skewX(150deg); background-color: red; }
+            5% { rotate: -180deg; transform: skewX(0deg); }
+            6% { rotate: 180deg; }
+            7% { rotate: 360deg; transform: skewX(50deg); }
+            8% { rotate: 180deg; transform: skewX(0deg); }
+            9% { rotate: 0deg; }
+            10% { rotate: 80deg; transform: skewX(0deg); }
+            15% { rotate: 0deg; transform: skewX(150deg); }
+            20% { rotate: 180deg; transform: skewX(-100deg); }
+            25% { rotate: 0deg; transform: skewX(0deg); scale: 100% }
+            50% { rotate: 180deg; scale: 10% }
+            100% { rotate: 0deg; }
+        }
+        @keyframes hide-after {
+            0% { opacity: 1000%; }
+            99% { opacity: 100%; }
+            100% { opacity: 0%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hide">
+        <p>press play :3</p>
+        <audio controls src="https://audio.ngfiles.com/57000/57239_newgrounds_space_.mp3?f1154268947"></audio>
+    </div>
+    <div class="part1">
+        <p class="rainbow">super sick skeleton with fire and flames!!! >:3</p>
+        <img src="https://www.shutterstock.com/image-illustration/scary-burning-skeleton-playing-rock-600nw-2633145473.jpg">
+        <p>he wants to ask u question.... WHAT IS UR NAME!!!</p>
+        <input placeholder="ur name">
+        <button>submit name</button>
+    </div>
+    <div class="part2">
+        <p class="rainbow">WOWA.... thatts a cool name.....</p>
+        <img id="explosion" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHhhM2R6b29laHRnYWR2dzRrY2ZtNmlqNmMwd2Q0NmEzazF5OHh3cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/pKWCBvHevLcMU/giphy.gif">
+    </div>
+    <script defer>
+        document.querySelector("audio").addEventListener("play", () => document.body.classList.add("part1"));
+        document.querySelector("button").addEventListener("click", () => {
+            document.body.classList.remove("part1");
+            document.body.classList.add("part2");
+        });
+    </script>
+</body>
+</html>
