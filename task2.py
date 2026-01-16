@@ -13,3 +13,9 @@ response = requests.get(url)
 soup = BeautifulSoup(response.content, 'html.parser')
 print(soup)
 
+
+
+
+# News headlines are under <hy-general-list
+
+
