@@ -35,12 +35,19 @@ def rewrite_query(query, td_matrix, t2i):
     return " ".join(rewrite_token(t, td_matrix, t2i) for t in query.split())
 
 
-def test_query(query, td_matrix, t2i):
+def test_query(query, td_matrix, t2i, documents):
     print("Query: '" + query + "'")
     print("Rewritten:", rewrite_query(query, td_matrix, t2i))
     # Eval runs the string as a Python command
     print("Matching:", eval(rewrite_query(query, td_matrix, t2i)))
-    print()
+    # finding the matching document
+    hits_matrix = eval(rewrite_query(query, td_matrix, t2i))
+    hits_list = list(hits_matrix.nonzero()[1])
+    # prints the first 500 characters of the matching document
+    for i, doc_idx in enumerate(hits_list):
+        print("Matching doc #{:d}: {:s}".format(i, (documents[doc_idx][:500])))
+    
+
 
 
 def main():
@@ -74,6 +81,6 @@ def main():
             print(query)
             # because td_matrix and t2i are defined in main(), also pass these
             # to other functions
-            test_query(query, td_matrix, t2i)
+            test_query(query, td_matrix, t2i, documents)
 
 main()
