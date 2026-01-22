@@ -1,0 +1,4 @@
+gold standard
+recall = true positives/true pos + false neg
+precision = true os/true pos + false pos
+if precision is high, recall is low and the other way around
