@@ -78,10 +78,10 @@ def test_tf_idf_query(query, tf_matrix, t2i):
             documents[i][:500]))
 
 def main():
-    cv = CountVectorizer(lowercase=True, binary=False)
-    dense_matrix = cv.fit_transform(documents).T.todense()
+    cv1 = CountVectorizer(lowercase=True, binary=True)
 
-    sparse_matrix = cv.fit_transform(documents)
+    sparse_matrix = cv1.fit_transform(documents)
+    dense_matrix = sparse_matrix.todense()
     # print("Term-document matrix: (?)\n")
     # print(sparse_matrix)
 
@@ -94,7 +94,7 @@ def main():
     #print("Term-document matrix:\n")
     #print(td_matrix)
 
-    t2i = cv.vocabulary_
+    t2i = cv1.vocabulary_
     #print(t2i)
 
     while True:
@@ -112,10 +112,11 @@ def main():
 
     # -- tf-idf --
 
+    cv2 = CountVectorizer(lowercase=True, binary=False)
+    t2iv2 = cv2.vocabulary_
+
     tf_matrix = create_tf_matrix()
-    test_tf_idf_query("candy", tf_matrix, t2i)
-
-
+    test_tf_idf_query("candy", tf_matrix, t2iv2)
 
 
 main()
