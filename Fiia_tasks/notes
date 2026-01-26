@@ -2,3 +2,7 @@ gold standard
 recall = true positives/true pos + false neg
 precision = true os/true pos + false pos
 if precision is high, recall is low and the other way around
+
+tf -idf 
+term freq - inverse document freq 
+tf = how many times a term appears in a doc 

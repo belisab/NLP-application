@@ -26,7 +26,7 @@ for article in articles:
 
 # rewrite tokens
 def rewrite_token(t, td_matrix, t2i):
-    # returns t d_matrix[t2i["is"]]
+    # returns td_matrix[t2i["is"]]
     return d.get(t, 'td_matrix[t2i["{:s}"]]'.format(t))
 
 
@@ -46,6 +46,7 @@ def test_query(query, td_matrix, t2i, documents):
     # prints the first 500 characters of the matching document
     for i, doc_idx in enumerate(hits_list):
         print("Matching doc #{:d}: {:s}".format(i, (documents[doc_idx][:500])))
+
     
 
 
@@ -54,21 +55,21 @@ def main():
     cv = CountVectorizer(lowercase=True, binary=True)
     sparse_matrix = cv.fit_transform(documents)
 
-    print("Term-document matrix: (?)\n")
-    print(sparse_matrix)
+    # print("Term-document matrix: (?)\n")
+    # print(sparse_matrix)
 
     dense_matrix = sparse_matrix.todense()
 
-    print("Term-document matrix: (?)\n")
-    print(dense_matrix)
+    # print("Term-document matrix: (?)\n")
+    # print(dense_matrix)
 
     td_matrix = dense_matrix.T  # .T transposes the matrix
 
-    print("Term-document matrix:\n")
-    print(td_matrix)
+    # print("Term-document matrix:\n")
+    # print(td_matrix)
 
     t2i = cv.vocabulary_
-    print(t2i)
+    # print(t2i)
 
     while True:
         query = input("Search for something. If you want to stop your search "
