@@ -12,3 +12,4 @@ Aaro:
 Isabel:
 19.1.   2 hours     query loop for Boolean search, pair coding with Fiia
 26.1.   2 hours     tf-idf, pair coding with Fiia
+27.1    1.5 hours   tf-idf, pair coding with Fiia
